@@ -4,7 +4,7 @@ import react from '@vitejs/plugin-react'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/bholu-bhaiya-wedding/', // GitHub Pages repo name — change to '/' for Vercel or custom domain
+  base: './', // Relative base — universally works on Netlify, Vercel, GitHub Pages, or any host!
   build: {
     rollupOptions: {
       output: {
