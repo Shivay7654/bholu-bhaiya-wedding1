@@ -1,0 +1,437 @@
+/* ============================================================
+   GLOBAL DESIGN SYSTEM — Indian Wedding Invitation
+   Ravi Prakash Weds Jyoti Singh
+   ============================================================ */
+
+/* ---- CSS Custom Properties ---- */
+:root {
+  /* Color Palette */
+  --maroon: #6B0F1A;
+  --maroon-dark: #4A0A12;
+  --maroon-light: #8B1A28;
+  --deep-red: #9B1C1C;
+  --gold: #D4AF37;
+  --gold-light: #F0D060;
+  --gold-dark: #A0832A;
+  --ivory: #FFFFF0;
+  --cream: #FDF6E3;
+  --cream-dark: #F5E6C8;
+  --warm-white: #FAF7F0;
+  --text-dark: #1A0A00;
+  --text-medium: #3D1C02;
+  --text-light: #7A5C3A;
+  --overlay-dark: rgba(26, 5, 5, 0.72);
+  --overlay-medium: rgba(26, 5, 5, 0.5);
+  --overlay-light: rgba(26, 5, 5, 0.3);
+
+  /* Typography */
+  --font-display: 'Great Vibes', cursive;
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-elegant: 'Cormorant Garamond', 'Palatino Linotype', serif;
+  --font-body: 'Lato', 'Helvetica Neue', Arial, sans-serif;
+
+  /* Spacing */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4rem;
+
+  /* Borders & Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-gold: 0 0 20px rgba(212, 175, 55, 0.4);
+  --shadow-gold-strong: 0 0 40px rgba(212, 175, 55, 0.7);
+  --shadow-dark: 0 8px 32px rgba(26, 5, 5, 0.4);
+  --shadow-card: 0 4px 24px rgba(26, 5, 5, 0.3);
+
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-med: 0.4s ease;
+  --transition-slow: 0.7s ease;
+
+  /* Z-indices */
+  --z-nav: 100;
+  --z-modal: 200;
+  --z-music: 90;
+  --z-petals: 10;
+  --z-curtain: 150;
+}
+
+/* ---- Reset & Base ---- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--maroon-dark);
+  color: var(--text-dark);
+  overflow-x: hidden;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ---- Utility Classes ---- */
+.gold-text {
+  color: var(--gold);
+}
+
+.gold-gradient-text {
+  background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 50%, var(--gold-dark) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.section-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.8rem, 5vw, 3rem);
+  font-weight: 700;
+  color: var(--gold);
+  text-align: center;
+  letter-spacing: 0.05em;
+}
+
+.ornamental-divider {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  justify-content: center;
+  margin: var(--space-md) 0;
+}
+
+.ornamental-divider::before,
+.ornamental-divider::after {
+  content: '';
+  height: 1px;
+  width: 60px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+.ornamental-divider-text {
+  font-family: var(--font-elegant);
+  color: var(--gold);
+  font-size: 1.2rem;
+  white-space: nowrap;
+}
+
+/* Decorative corner ornaments via CSS */
+.corner-ornaments {
+  position: relative;
+}
+
+.corner-ornaments::before,
+.corner-ornaments::after {
+  content: '✦';
+  position: absolute;
+  color: var(--gold);
+  font-size: 1rem;
+  opacity: 0.7;
+}
+
+.corner-ornaments::before { top: 8px; left: 8px; }
+.corner-ornaments::after  { top: 8px; right: 8px; }
+
+/* Gold shimmer animation on text */
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.shimmer-gold {
+  background: linear-gradient(
+    90deg,
+    var(--gold-dark) 0%,
+    var(--gold-light) 25%,
+    var(--gold) 50%,
+    var(--gold-light) 75%,
+    var(--gold-dark) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 4s linear infinite;
+}
+
+/* ---- CTA Button Styles ---- */
+.btn-royal {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: 0.85rem 2rem;
+  background: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold) 50%, var(--gold-light) 100%);
+  color: var(--maroon-dark);
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: var(--radius-full);
+  border: 2px solid var(--gold-light);
+  box-shadow: 0 4px 20px rgba(212, 175, 55, 0.4), inset 0 1px 0 rgba(255,255,255,0.2);
+  transition: all var(--transition-med);
+  min-height: 48px; /* Touch-friendly */
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.btn-royal::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--gold-light), var(--gold), var(--gold-dark));
+  opacity: 0;
+  transition: opacity var(--transition-med);
+}
+
+.btn-royal:hover::before,
+.btn-royal:focus::before {
+  opacity: 1;
+}
+
+.btn-royal:hover,
+.btn-royal:focus {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(212, 175, 55, 0.6);
+  outline: none;
+}
+
+.btn-royal:active {
+  transform: translateY(0);
+}
+
+.btn-royal span {
+  position: relative;
+  z-index: 1;
+}
+
+.btn-outline-gold {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: 0.75rem 1.75rem;
+  background: transparent;
+  color: var(--gold);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: var(--radius-full);
+  border: 2px solid var(--gold);
+  transition: all var(--transition-med);
+  min-height: 48px;
+  cursor: pointer;
+}
+
+.btn-outline-gold:hover,
+.btn-outline-gold:focus {
+  background: var(--gold);
+  color: var(--maroon-dark);
+  outline: none;
+  box-shadow: var(--shadow-gold);
+}
+
+/* ---- Ornamental Frame ---- */
+.ornamental-frame {
+  position: relative;
+  border: 2px solid var(--gold);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  background: rgba(253, 246, 227, 0.97);
+  box-shadow: 
+    0 0 0 6px rgba(212, 175, 55, 0.15),
+    0 0 0 12px rgba(212, 175, 55, 0.06),
+    var(--shadow-dark);
+}
+
+.ornamental-frame::before,
+.ornamental-frame::after {
+  content: '';
+  position: absolute;
+  border: 1px solid rgba(212, 175, 55, 0.5);
+  border-radius: calc(var(--radius-lg) - 6px);
+  inset: 8px;
+  pointer-events: none;
+}
+
+.ornamental-frame::after {
+  inset: 14px;
+  border-color: rgba(212, 175, 55, 0.25);
+}
+
+/* ---- Page Wrapper ---- */
+.page-wrapper {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---- Animations ---- */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes petalFall {
+  0%   { transform: translateY(-10vh) rotate(0deg) translateX(0); opacity: 0.8; }
+  25%  { transform: translateY(25vh) rotate(90deg) translateX(20px); }
+  50%  { transform: translateY(50vh) rotate(180deg) translateX(-15px); }
+  75%  { transform: translateY(75vh) rotate(270deg) translateX(10px); }
+  100% { transform: translateY(110vh) rotate(360deg) translateX(-20px); opacity: 0; }
+}
+
+@keyframes floatUp {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-10px); }
+}
+
+@keyframes pulse-gold {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.6); }
+  50%       { box-shadow: 0 0 0 12px rgba(212, 175, 55, 0); }
+}
+
+@keyframes curtainLeft {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-105%); }
+}
+
+@keyframes curtainRight {
+  from { transform: translateX(0); }
+  to   { transform: translateX(105%); }
+}
+
+@keyframes doorOpen {
+  0%   { transform: perspective(1200px) rotateY(0deg); }
+  100% { transform: perspective(1200px) rotateY(-85deg); }
+}
+
+@keyframes doorOpenRight {
+  0%   { transform: perspective(1200px) rotateY(0deg); }
+  100% { transform: perspective(1200px) rotateY(85deg); }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s ease forwards;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.6s ease forwards;
+}
+
+.animate-float {
+  animation: floatUp 3s ease-in-out infinite;
+}
+
+/* ---- Reduced Motion ---- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ---- Scrollbar Styling ---- */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--maroon-dark); }
+::-webkit-scrollbar-thumb { background: var(--gold-dark); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--gold); }
+
+/* ---- Selection ---- */
+::selection {
+  background: var(--gold);
+  color: var(--maroon-dark);
+}
+
+
+/* Circular Down Chevron Button — as in picture */
+.section-scroll-down-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, 0.65);
+  background: rgba(20, 2, 5, 0.5);
+  backdrop-filter: blur(4px);
+  color: #FFFFFF;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  animation: gentle-chevron-bob 2.2s infinite ease-in-out;
+}
+
+.section-scroll-down-btn:hover {
+  border-color: #D4AF37;
+  color: #FFDF73;
+  background: rgba(60, 8, 16, 0.85);
+  transform: scale(1.12);
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+}
+
+@keyframes gentle-chevron-bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(5px); }
+}

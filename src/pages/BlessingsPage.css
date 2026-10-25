@@ -1,0 +1,227 @@
+.blessings-page {
+  min-height: 100dvh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem 1.25rem 3rem;
+  overflow: hidden;
+}
+
+.blessings-bg {
+  position: fixed;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.3) saturate(1.3);
+  z-index: 0;
+}
+
+.blessings-overlay {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(74, 10, 18, 0.85) 0%,
+    rgba(26, 5, 5, 0.78) 50%,
+    rgba(74, 10, 18, 0.88) 100%
+  );
+  z-index: 1;
+}
+
+/* Container */
+.blessings-container {
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.blessings-container.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Card */
+.blessings-card {
+  background: linear-gradient(155deg, #FFFFF8 0%, var(--cream) 50%, #FFF5E8 100%);
+  border-radius: var(--radius-xl, 24px);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  box-shadow:
+    0 0 0 4px rgba(212, 175, 55, 0.12),
+    0 0 0 8px rgba(212, 175, 55, 0.05),
+    0 20px 60px rgba(0, 0, 0, 0.5),
+    0 0 80px rgba(212, 175, 55, 0.1);
+  padding: 2.5rem 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Watermark */
+.blessings-card::before {
+  content: '✦';
+  position: absolute;
+  font-size: 40vw;
+  color: rgba(212, 175, 55, 0.03);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  line-height: 1;
+}
+
+/* Corners */
+.bless-corner {
+  position: absolute;
+  font-size: 1.4rem;
+  color: var(--gold-dark);
+  opacity: 0.55;
+  pointer-events: none;
+}
+.bless-corner-tl { top: 6px; left: 10px; transform: rotate(-20deg); }
+.bless-corner-tr { top: 6px; right: 10px; transform: rotate(20deg) scaleX(-1); }
+.bless-corner-bl { bottom: 6px; left: 10px; transform: rotate(20deg); }
+.bless-corner-br { bottom: 6px; right: 10px; transform: rotate(-20deg) scaleX(-1); }
+
+/* Om */
+.bless-om {
+  font-size: 2.5rem;
+  color: var(--maroon);
+  margin-bottom: 0.25rem;
+  display: block;
+  filter: drop-shadow(0 0 8px rgba(139, 26, 40, 0.25));
+  animation: floatUp 3s ease-in-out infinite;
+}
+
+/* Divider */
+.bless-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  margin: 0.5rem 0;
+}
+
+.bless-divider span:first-child,
+.bless-divider span:last-child {
+  display: block;
+  height: 1px;
+  width: 50px;
+  background: linear-gradient(90deg, transparent, var(--gold-dark), transparent);
+}
+
+.bless-divider span:nth-child(2) {
+  color: var(--gold-dark);
+  font-size: 0.5rem;
+  opacity: 0.7;
+}
+
+/* Heading */
+.bless-heading {
+  font-family: var(--font-serif);
+  font-size: clamp(1.3rem, 4vw, 1.75rem);
+  color: var(--maroon);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  line-height: 1.3;
+}
+
+/* Quote */
+.bless-quote {
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 4.5vw, 1.8rem);
+  color: var(--maroon);
+  line-height: 1.4;
+  margin: 0.5rem 0;
+  padding: 0 0.5rem;
+  quotes: '"' '"';
+}
+
+/* Flower row */
+.bless-flower-row {
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 0.5rem 0;
+  animation: floatUp 4s ease-in-out infinite;
+}
+
+.bless-flower-large {
+  font-size: 2rem;
+  margin: 0.75rem 0;
+}
+
+/* Message */
+.bless-message {
+  font-family: var(--font-elegant);
+  font-size: clamp(0.88rem, 2.2vw, 1rem);
+  color: var(--text-medium);
+  line-height: 1.85;
+  margin-bottom: 0.75rem;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Sign-off */
+.bless-signoff {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.bless-regards {
+  font-family: var(--font-elegant);
+  font-size: 0.92rem;
+  color: var(--text-light);
+  font-style: italic;
+}
+
+.bless-family-name {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 5vw, 2.2rem);
+  color: var(--maroon);
+  line-height: 1.2;
+}
+
+.bless-date {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  color: var(--text-light);
+  letter-spacing: 0.25em;
+  margin-top: 0.2rem;
+}
+
+/* CTAs */
+.bless-ctas {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.bless-cta {
+  width: 100%;
+  max-width: 320px;
+  justify-content: center;
+  font-size: 0.88rem !important;
+}
+
+.bless-cta-outline {
+  font-size: 0.82rem;
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .blessings-card {
+    padding: 2rem 1.25rem;
+  }
+}

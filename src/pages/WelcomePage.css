@@ -1,0 +1,350 @@
+.welcome-page {
+  position: relative;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: var(--maroon-dark);
+}
+
+/* Background image */
+.welcome-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  transform: scale(1.05);
+  transition: transform 8s ease;
+  will-change: transform;
+}
+
+.welcome-page.loaded .welcome-bg {
+  transform: scale(1);
+}
+
+/* Dark overlay */
+.welcome-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(26, 5, 5, 0.55) 0%,
+    rgba(26, 5, 5, 0.45) 40%,
+    rgba(26, 5, 5, 0.65) 80%,
+    rgba(26, 5, 5, 0.85) 100%
+  );
+}
+
+/* ---- Curtain Panels ----
+   z-index: 5 — BELOW the content (z-index 30) so buttons are always clickable.
+   Curtains start covering the background; content text/buttons float above them.
+   On click the .opening class slides them off-screen. */
+.curtain {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 51%;
+  z-index: 5;
+  overflow: hidden;
+  transition: transform 1.3s cubic-bezier(0.77, 0, 0.175, 1);
+  will-change: transform;
+}
+
+.curtain-left  { left: 0; }
+.curtain-right { right: 0; }
+
+.curtain-left.opening  { transform: translateX(-105%); }
+.curtain-right.opening { transform: translateX(105%); }
+
+/* Curtain fabric texture */
+.curtain-pattern {
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      rgba(0,0,0,0) 0px,
+      rgba(0,0,0,0.04) 3px,
+      rgba(0,0,0,0) 6px,
+      rgba(0,0,0,0.02) 9px,
+      rgba(0,0,0,0) 12px
+    ),
+    linear-gradient(180deg,
+      #5a0b15 0%,
+      #7a1020 20%,
+      #6B0F1A 40%,
+      #8B1A28 60%,
+      #6B0F1A 80%,
+      #4a0a12 100%
+    );
+}
+
+/* Gold vertical trim at curtain center edge */
+.curtain-ornament { position: absolute; top: 0; bottom: 0; width: 30px; }
+.curtain-ornament-left  { right: 0; }
+.curtain-ornament-right { left: 0; }
+
+.curtain-border-v {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(212, 175, 55, 0.15) 20%,
+    rgba(212, 175, 55, 0.6) 50%,
+    rgba(212, 175, 55, 0.15) 80%,
+    transparent 100%
+  );
+}
+
+/* ---- Content ----
+   z-index: 30 — ABOVE curtains (z-index 5) and overlay (z-index 2).
+   Text and buttons are always visible and interactive. */
+.welcome-content {
+  position: relative;
+  z-index: 30;
+  text-align: center;
+  padding: 2rem 1.25rem 6rem;
+  max-width: 600px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Ganesh symbol */
+.ganesh-symbol {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+  animation: fadeIn 1s ease 0.1s both;
+}
+
+.ganesh-text {
+  font-size: 2.8rem;
+  color: var(--gold);
+  position: relative;
+  z-index: 2;
+  filter: drop-shadow(0 0 12px rgba(212, 175, 55, 0.6));
+  animation: floatUp 3s ease-in-out infinite;
+  display: block;
+  line-height: 1;
+}
+
+.ganesh-ring {
+  position: absolute;
+  inset: 0;
+  border: 2px solid rgba(212, 175, 55, 0.5);
+  border-radius: 50%;
+  animation: spin-slow 12s linear infinite;
+}
+
+.ganesh-ring::before {
+  content: '✦ ✦ ✦ ✦';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 0.4rem;
+  color: var(--gold);
+  opacity: 0.5;
+  white-space: nowrap;
+  letter-spacing: 10px;
+}
+
+/* Shubh Vivah */
+.welcome-shubh {
+  font-family: var(--font-elegant);
+  font-size: clamp(0.95rem, 3vw, 1.15rem);
+  color: var(--gold);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease 0.1s forwards;
+}
+
+/* Main heading */
+.welcome-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease 0.2s forwards;
+}
+
+.welcome-groom,
+.welcome-bride {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 10vw, 4.5rem);
+  color: var(--gold-light);
+  line-height: 1.1;
+  text-shadow: 0 2px 20px rgba(212, 175, 55, 0.4), 0 0 60px rgba(212, 175, 55, 0.2);
+  display: block;
+}
+
+.welcome-weds {
+  font-family: var(--font-elegant);
+  font-size: clamp(0.9rem, 3vw, 1.1rem);
+  color: rgba(212, 175, 55, 0.8);
+  font-style: italic;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  display: block;
+  margin: 0.2rem 0;
+}
+
+/* Decorative divider */
+.welcome-divider {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease 0.35s forwards;
+}
+
+.divider-line {
+  display: block;
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+.divider-diamond {
+  color: var(--gold);
+  font-size: 0.6rem;
+}
+
+/* Tagline */
+.welcome-tagline {
+  font-family: var(--font-elegant);
+  font-size: clamp(0.85rem, 2.5vw, 1rem);
+  color: rgba(255, 255, 255, 0.82);
+  line-height: 1.7;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease 0.45s forwards;
+  max-width: 420px;
+}
+
+/* Date badge */
+.welcome-date-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  padding: 1rem 2rem;
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  border-radius: var(--radius-md, 8px);
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(8px);
+  opacity: 0;
+  animation: fadeInUp 0.8s ease 0.55s forwards;
+}
+
+.date-label {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  color: rgba(212, 175, 55, 0.7);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.date-value {
+  font-family: var(--font-serif);
+  font-size: clamp(1.2rem, 4vw, 1.6rem);
+  color: var(--gold);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.date-sub {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.55);
+  letter-spacing: 0.1em;
+}
+
+/* CTA */
+.welcome-cta {
+  opacity: 0;
+  animation: fadeInUp 0.8s ease 0.7s forwards;
+  font-size: clamp(0.8rem, 2.5vw, 0.95rem) !important;
+}
+
+/* Skip */
+.welcome-skip {
+  opacity: 0;
+  animation: fadeIn 0.8s ease 1s forwards;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.45);
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  padding: 0.5rem;
+  min-height: 44px;
+  transition: color 0.2s ease;
+}
+
+.welcome-skip:hover {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.opening-text {
+  font-family: var(--font-elegant);
+  font-size: 0.9rem;
+  color: var(--gold);
+  font-style: italic;
+  letter-spacing: 0.15em;
+  animation: fadeIn 0.4s ease;
+}
+
+/* Scroll hint */
+.scroll-hint {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(212, 175, 55, 0.5);
+  animation: floatUp 2s ease-in-out infinite;
+  z-index: 30;
+}
+
+/* Corner decorations */
+.corner-decor {
+  position: absolute;
+  z-index: 30;
+  font-size: 1.2rem;
+  color: rgba(212, 175, 55, 0.4);
+  pointer-events: none;
+}
+
+.corner-decor.top-left     { top: 1.25rem; left: 1.25rem; }
+.corner-decor.top-right    { top: 1.25rem; right: 1.25rem; }
+.corner-decor.bottom-left  { bottom: 1.25rem; left: 1.25rem; }
+.corner-decor.bottom-right { bottom: 1.25rem; right: 1.25rem; }
+
+/* Mobile adjustments */
+@media (max-width: 480px) {
+  .welcome-content {
+    gap: 0.75rem;
+    padding-top: 3rem;
+  }
+  .welcome-groom,
+  .welcome-bride {
+    font-size: clamp(2rem, 14vw, 3rem);
+  }
+  .welcome-tagline br { display: none; }
+  .welcome-date-badge {
+    padding: 0.85rem 1.25rem;
+  }
+}

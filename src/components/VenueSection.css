@@ -1,0 +1,258 @@
+/* ============================================================
+   VENUE SECTION — Luxury Heritage Palace Details
+   ============================================================ */
+
+.venue-section {
+  position: relative;
+  background-color: #260408;
+  padding: 5rem 1.5rem;
+  color: #FFFFFF;
+  border-top: 1px solid rgba(212, 175, 55, 0.25);
+}
+
+.venue-bg-gradient {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 80% 30%, rgba(139, 10, 26, 0.3) 0%, transparent 60%),
+    linear-gradient(180deg, #1C0205 0%, #2A0408 100%);
+  z-index: 1;
+}
+
+.venue-container {
+  position: relative;
+  z-index: 10;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.venue-header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.venue-pre-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  color: #FFDF73;
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+}
+
+.venue-main-title {
+  font-family: 'Great Vibes', 'Alex Brush', cursive;
+  font-size: clamp(2.8rem, 5.5vw, 4.2rem);
+  font-weight: 400;
+  color: #FFFFFF;
+  margin: 0;
+  line-height: 1.1;
+  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
+}
+
+.venue-flourish {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  margin: 0.8rem 0 1rem;
+}
+
+.v-wing {
+  width: 50px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #D4AF37, transparent);
+}
+
+.v-symbol {
+  color: #D4AF37;
+  font-size: 0.85rem;
+}
+
+.venue-tagline {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.15rem;
+  color: #EBDDC2;
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+/* Grid Layout */
+.venue-content-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+/* Left Main Card */
+.venue-main-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.6);
+}
+
+.venue-img-banner {
+  position: relative;
+  height: 250px;
+  background-size: cover;
+  background-position: center;
+}
+
+.venue-banner-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 40%, rgba(32, 4, 8, 0.95) 100%);
+}
+
+.venue-badge-pill {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(20, 2, 4, 0.75);
+  border: 1px solid rgba(212, 175, 55, 0.5);
+  backdrop-filter: blur(6px);
+  color: #FFDF73;
+  padding: 0.4rem 0.9rem;
+  border-radius: 9999px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.venue-card-body {
+  padding: 1.8rem 2rem 2rem;
+}
+
+.venue-resort-name {
+  font-family: 'Cinzel', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #FFDF73;
+  margin: 0 0 0.4rem 0;
+}
+
+.venue-full-address {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9rem;
+  color: #EBDDC2;
+  margin: 0 0 1.5rem 0;
+  line-height: 1.5;
+}
+
+.venue-cta-row {
+  margin-bottom: 1.5rem;
+}
+
+.venue-maps-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  background: linear-gradient(135deg, #7A0C1A 0%, #520610 100%);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  color: #FFFFFF;
+  padding: 0.75rem 1.6rem;
+  border-radius: 8px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.venue-maps-btn:hover {
+  background: linear-gradient(135deg, #961222 0%, #680A15 100%);
+  border-color: #D4AF37;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(122, 12, 26, 0.5);
+}
+
+.venue-contact-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid rgba(212, 175, 55, 0.2);
+  color: #EBDDC2;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.8rem;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.contact-item svg {
+  color: #FFDF73;
+}
+
+/* Right Column Amenities */
+.venue-amenities-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.amenity-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  border-radius: 10px;
+  padding: 1.4rem;
+  display: flex;
+  gap: 1.2rem;
+  transition: all 0.25s ease;
+}
+
+.amenity-card:hover {
+  border-color: #D4AF37;
+  transform: translateX(4px);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.amenity-icon-wrap {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(212, 175, 55, 0.15);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFDF73;
+  flex-shrink: 0;
+}
+
+.amenity-title {
+  font-family: 'Cinzel', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #FFDF73;
+  margin: 0 0 0.35rem 0;
+}
+
+.amenity-desc {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.82rem;
+  color: #EBDDC2;
+  line-height: 1.5;
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .venue-content-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,161 @@
+/* ============================================================
+   PALACE WELCOME SECTION — Exactly as in Picture
+   ============================================================ */
+
+.palace-welcome-section {
+  position: relative;
+  min-height: 440px;
+  height: 55vh;
+  max-height: 600px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  overflow: hidden;
+  background-color: #120406;
+}
+
+/* Panoramic Palace Background */
+.palace-bg-image {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center 30%;
+  z-index: 1;
+  transform: scale(1.02);
+  transition: transform 6s ease-out;
+}
+
+.palace-welcome-section:hover .palace-bg-image {
+  transform: scale(1.05);
+}
+
+/* Gradients for text legibility and rich atmosphere */
+.palace-overlay-gradient {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(10, 2, 4, 0.4) 0%, rgba(10, 2, 4, 0.2) 40%, rgba(10, 2, 4, 0.75) 80%, rgba(10, 2, 4, 0.9) 100%),
+    linear-gradient(180deg, rgba(20, 3, 6, 0.5) 0%, transparent 20%, transparent 80%, rgba(20, 3, 6, 0.8) 100%);
+  z-index: 2;
+}
+
+/* Sparkler fireworks particles */
+.palace-sparkles {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  background-image:
+    radial-gradient(circle at 12% 45%, rgba(255, 240, 180, 0.8) 0 2px, transparent 3px),
+    radial-gradient(circle at 15% 42%, rgba(255, 200, 100, 0.7) 0 3px, transparent 4px),
+    radial-gradient(circle at 18% 50%, rgba(255, 255, 220, 0.9) 0 2px, transparent 3px),
+    radial-gradient(circle at 90% 40%, rgba(255, 220, 140, 0.6) 0 2.5px, transparent 4px),
+    radial-gradient(circle at 85% 35%, rgba(255, 240, 180, 0.8) 0 2px, transparent 3px);
+}
+
+/* Content Container */
+.palace-content-container {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 4rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Typography Block matching picture */
+.palace-typography-block {
+  text-align: right;
+  color: #FFFFFF;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.85);
+  max-width: 480px;
+}
+
+/* "Welcome" */
+.palace-welcome-script {
+  font-family: 'Great Vibes', 'Alex Brush', cursive;
+  font-size: clamp(3.2rem, 6.5vw, 5.2rem);
+  font-weight: 400;
+  color: #FFFFFF;
+  line-height: 1;
+  margin: 0;
+  letter-spacing: 0.02em;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.9), 0 0 15px rgba(255, 225, 140, 0.4);
+}
+
+/* "TO OUR" */
+.palace-to-our {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(0.75rem, 1.3vw, 0.95rem);
+  font-weight: 600;
+  letter-spacing: 0.35em;
+  color: #EBDDC2;
+  margin: 0.2rem 0;
+  text-transform: uppercase;
+}
+
+/* "Wedding Celebration" */
+.palace-wedding-script {
+  font-family: 'Great Vibes', 'Alex Brush', cursive;
+  font-size: clamp(2.4rem, 4.8vw, 3.8rem);
+  font-weight: 400;
+  color: #FFEFC8;
+  line-height: 1.1;
+  margin: 0;
+  text-shadow: 0 3px 16px rgba(0, 0, 0, 0.9);
+}
+
+/* Gold Flourish underneath */
+.palace-flourish {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.6rem;
+  margin-top: 0.6rem;
+}
+
+.flourish-wing {
+  width: 50px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #D4AF37);
+}
+
+.palace-flourish .flourish-wing:last-child {
+  background: linear-gradient(270deg, transparent, #D4AF37);
+}
+
+.flourish-symbol {
+  color: #D4AF37;
+  font-size: 0.85rem;
+}
+
+/* Bottom Center Down Chevron */
+.palace-scroll-indicator {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+}
+
+@media (max-width: 768px) {
+  .palace-welcome-section {
+    min-height: 380px;
+    height: auto;
+    padding: 3.5rem 1.5rem;
+    justify-content: center;
+  }
+  .palace-content-container {
+    padding: 0 1rem;
+    justify-content: center;
+  }
+  .palace-typography-block {
+    text-align: center;
+  }
+  .palace-flourish {
+    justify-content: center;
+  }
+}

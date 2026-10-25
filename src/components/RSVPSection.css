@@ -1,0 +1,356 @@
+/* ============================================================
+   RSVP & BLESSINGS SECTION
+   ============================================================ */
+
+.rsvp-section {
+  position: relative;
+  background-color: #1A0306;
+  padding: 5rem 1.5rem 6rem;
+  color: #FFFFFF;
+  border-top: 1px solid rgba(212, 175, 55, 0.25);
+}
+
+.rsvp-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 70%, rgba(139, 10, 26, 0.3) 0%, transparent 60%),
+    linear-gradient(180deg, #240408 0%, #120204 100%);
+  z-index: 1;
+}
+
+.rsvp-container {
+  position: relative;
+  z-index: 10;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.rsvp-header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.rsvp-pre-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  color: #FFDF73;
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+}
+
+.rsvp-main-title {
+  font-family: 'Great Vibes', 'Alex Brush', cursive;
+  font-size: clamp(2.8rem, 5.5vw, 4.2rem);
+  font-weight: 400;
+  color: #FFFFFF;
+  margin: 0;
+  line-height: 1.1;
+  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
+}
+
+.rsvp-flourish {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  margin: 0.8rem 0 1rem;
+}
+
+.r-wing {
+  width: 50px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #D4AF37, transparent);
+}
+
+.r-symbol {
+  color: #E85D75;
+  font-size: 1.1rem;
+}
+
+.rsvp-subtitle {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.15rem;
+  color: #EBDDC2;
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+/* Grid */
+.rsvp-layout-grid {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  gap: 2.2rem;
+  align-items: start;
+}
+
+/* Left: Form Card */
+.rsvp-form-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 12px;
+  padding: 2.2rem;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+}
+
+.form-card-title {
+  font-family: 'Cinzel', serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #FFDF73;
+  margin: 0 0 1.5rem 0;
+}
+
+.form-group {
+  margin-bottom: 1.2rem;
+}
+
+.form-group label {
+  display: block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: #EBDDC2;
+  margin-bottom: 0.45rem;
+  text-transform: uppercase;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 6px;
+  color: #FFFFFF;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.88rem;
+  box-sizing: border-box;
+  transition: all 0.25s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #FFDF73;
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.4);
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.form-row-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+/* Event Checkboxes Pills */
+.events-checkbox-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.event-check-pill {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  color: #EBDDC2;
+  padding: 0.45rem 0.9rem;
+  border-radius: 9999px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.event-check-pill.selected {
+  background: rgba(212, 175, 55, 0.25);
+  border-color: #FFDF73;
+  color: #FFDF73;
+  box-shadow: 0 0 8px rgba(212, 175, 55, 0.3);
+}
+
+.form-buttons-row {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.submit-rsvp-btn {
+  flex: 1.2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  background: linear-gradient(135deg, #7A0C1A 0%, #520610 100%);
+  border: 1px solid rgba(212, 175, 55, 0.45);
+  color: #FFFFFF;
+  padding: 0.85rem 1.4rem;
+  border-radius: 8px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.submit-rsvp-btn:hover {
+  background: linear-gradient(135deg, #961222 0%, #680A15 100%);
+  border-color: #FFDF73;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(122, 12, 26, 0.5);
+}
+
+.whatsapp-rsvp-btn {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: #128C7E;
+  border: 1px solid #25D366;
+  color: #FFFFFF;
+  padding: 0.85rem 1.2rem;
+  border-radius: 8px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.whatsapp-rsvp-btn:hover {
+  background: #075E54;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(18, 140, 126, 0.5);
+}
+
+/* Success State */
+.rsvp-success-view {
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.success-icon {
+  color: #FFDF73;
+  margin-bottom: 1rem;
+}
+
+.success-title {
+  font-family: 'Cinzel', serif;
+  font-size: 1.5rem;
+  color: #FFDF73;
+  margin: 0 0 0.8rem 0;
+}
+
+.success-text {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9rem;
+  color: #EBDDC2;
+  line-height: 1.6;
+  max-width: 440px;
+  margin: 0 auto 1.5rem;
+}
+
+.rsvp-reset-btn {
+  background: rgba(212, 175, 55, 0.2);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  color: #FFDF73;
+  padding: 0.6rem 1.4rem;
+  border-radius: 9999px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Right: Blessings Wall Card */
+.blessings-wall-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  border-radius: 12px;
+  padding: 1.8rem;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5);
+}
+
+.blessings-wall-header {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.blessings-wall-header h3 {
+  font-family: 'Cinzel', serif;
+  font-size: 1.15rem;
+  color: #FFDF73;
+  margin: 0;
+}
+
+.blessings-heart-icon {
+  color: #E85D75;
+}
+
+.blessings-scroll-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-height: 480px;
+  overflow-y: auto;
+  padding-right: 0.4rem;
+}
+
+.blessing-bubble {
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(212, 175, 55, 0.18);
+  border-radius: 8px;
+  padding: 1rem 1.2rem;
+  transition: all 0.25s ease;
+}
+
+.blessing-bubble:hover {
+  border-color: rgba(212, 175, 55, 0.4);
+  transform: translateX(3px);
+}
+
+.blessing-text {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.05rem;
+  font-style: italic;
+  color: #F5EBD7;
+  line-height: 1.5;
+  margin: 0 0 0.6rem 0;
+}
+
+.blessing-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.72rem;
+  color: #FFDF73;
+}
+
+.blessing-author {
+  font-weight: 600;
+}
+
+.blessing-time {
+  opacity: 0.7;
+}
+
+@media (max-width: 900px) {
+  .rsvp-layout-grid {
+    grid-template-columns: 1fr;
+  }
+}

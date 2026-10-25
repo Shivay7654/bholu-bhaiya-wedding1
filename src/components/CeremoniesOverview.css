@@ -1,0 +1,177 @@
+/* ============================================================
+   CEREMONIES OVERVIEW / 5 ARCHED CARDS — Exactly as in Picture
+   ============================================================ */
+
+.ceremonies-overview-section {
+  position: relative;
+  background-color: #38060D;
+  padding: 3rem 1.5rem 3.5rem;
+  overflow: hidden;
+  border-top: 1px solid rgba(212, 175, 55, 0.35);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.35);
+}
+
+/* Deep Maroon Damask Texture */
+.overview-damask-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 50% 50%, rgba(85, 10, 20, 0.8) 0%, rgba(45, 5, 10, 0.95) 70%, #200205 100%),
+    linear-gradient(135deg, #4A0812 0%, #2A0408 100%);
+  z-index: 1;
+}
+
+/* Decorative Floral Borders on Left and Right */
+.overview-floral-border {
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 4% 15%, rgba(212, 175, 55, 0.15) 0 30px, transparent 60px),
+    radial-gradient(circle at 96% 15%, rgba(212, 175, 55, 0.15) 0 30px, transparent 60px),
+    radial-gradient(circle at 4% 85%, rgba(212, 175, 55, 0.15) 0 30px, transparent 60px),
+    radial-gradient(circle at 96% 85%, rgba(212, 175, 55, 0.15) 0 30px, transparent 60px);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.overview-container {
+  position: relative;
+  z-index: 10;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+/* Header: "✦ CELEBRATE EVERY MOMENT ✦" */
+.overview-header {
+  text-align: center;
+  margin-bottom: 2.2rem;
+}
+
+.overview-title {
+  font-family: 'Cinzel', 'Playfair Display', Georgia, serif;
+  font-size: clamp(0.95rem, 1.8vw, 1.25rem);
+  font-weight: 600;
+  letter-spacing: 0.35em;
+  color: #FFDF73;
+  text-shadow: 0 0 12px rgba(212, 175, 55, 0.6);
+  margin: 0;
+  text-transform: uppercase;
+}
+
+/* 4 Arched Cards Row (Tilak, Haldi, Barat, Vidai) */
+.arched-cards-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.8rem;
+  align-items: stretch;
+  max-width: 1040px;
+  margin: 0 auto;
+}
+
+.arched-card-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  text-align: center;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+.arched-card-btn:hover {
+  transform: translateY(-8px) scale(1.02);
+}
+
+.arched-card-inner {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 160 / 210;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.arch-frame-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.5));
+  transition: filter 0.3s ease;
+}
+
+.arched-card-btn:hover .arch-frame-svg {
+  filter: drop-shadow(0 8px 22px rgba(212, 175, 55, 0.45));
+}
+
+.arched-card-btn:hover .arch-frame-svg path:first-child {
+  stroke: #FFF2B2;
+  fill: rgba(75, 10, 18, 0.85);
+}
+
+.arched-card-content {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem 0.8rem 1rem;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.arched-icon-wrap {
+  margin-bottom: 0.85rem;
+  transition: transform 0.3s ease;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.6));
+}
+
+.arched-card-btn:hover .arched-icon-wrap {
+  transform: scale(1.12);
+  filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.8));
+}
+
+.arched-card-title {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(0.95rem, 1.3vw, 1.15rem);
+  font-weight: 700;
+  color: #FFDF73;
+  letter-spacing: 0.14em;
+  margin: 0 0 0.35rem 0;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.7);
+  transition: color 0.25s ease;
+}
+
+.arched-card-btn:hover .arched-card-title {
+  color: #FFFFFF;
+}
+
+.arched-card-subtitle {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(0.6rem, 0.85vw, 0.68rem);
+  font-weight: 600;
+  color: #EBDDC2;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin: 0;
+  opacity: 0.9;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .arched-cards-row {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.4rem;
+    max-width: 520px;
+  }
+}
+
+@media (max-width: 520px) {
+  .arched-cards-row {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.9rem;
+  }
+}

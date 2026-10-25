@@ -1,0 +1,125 @@
+/* ============================================================
+   ROYAL FOOTER SECTION
+   ============================================================ */
+
+.royal-footer {
+  position: relative;
+  background-color: #120205;
+  padding: 4.5rem 1.5rem 3rem;
+  color: #FFFFFF;
+  border-top: 1px solid rgba(212, 175, 55, 0.35);
+  overflow: hidden;
+}
+
+.footer-gradient-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 50% 10%, rgba(139, 10, 26, 0.35) 0%, transparent 60%),
+    linear-gradient(180deg, #1C0205 0%, #0A0103 100%);
+  z-index: 1;
+}
+
+.footer-container {
+  position: relative;
+  z-index: 10;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.footer-countdown-wrap {
+  margin-bottom: 3rem;
+}
+
+.footer-crest-wrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0.8rem;
+  filter: drop-shadow(0 0 12px rgba(212, 175, 55, 0.5));
+}
+
+.footer-couple-title {
+  font-family: 'Great Vibes', 'Alex Brush', cursive;
+  font-size: clamp(2.5rem, 5vw, 3.8rem);
+  font-weight: 400;
+  color: #FFFFFF;
+  margin: 0 0 0.4rem 0;
+  line-height: 1.1;
+  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
+}
+
+.footer-dates-venue {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.85rem;
+  color: #FFDF73;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin: 0 0 2rem 0;
+}
+
+.footer-shloka-box {
+  background: rgba(212, 175, 55, 0.08);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  border-radius: 8px;
+  padding: 1.2rem 1.5rem;
+  max-width: 580px;
+  margin: 0 auto 2.5rem;
+}
+
+.footer-shloka {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.05rem;
+  color: #FFDF73;
+  margin: 0 0 0.3rem 0;
+  letter-spacing: 0.04em;
+}
+
+.footer-shloka-sub {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 0.95rem;
+  color: #EBDDC2;
+  margin: 0;
+  letter-spacing: 0.04em;
+}
+
+.footer-nav-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-bottom: 2.8rem;
+  padding-bottom: 1.8rem;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.footer-nav-links button {
+  background: none;
+  border: none;
+  color: #EBDDC2;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.footer-nav-links button:hover {
+  color: #FFDF73;
+}
+
+.footer-warm-msg {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.1rem;
+  color: #EBDDC2;
+  margin: 0 0 0.5rem 0;
+}
+
+.footer-copyright {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.75rem;
+  color: rgba(235, 221, 194, 0.6);
+  margin: 0;
+}

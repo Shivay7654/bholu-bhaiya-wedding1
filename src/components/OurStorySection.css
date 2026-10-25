@@ -1,0 +1,208 @@
+/* ============================================================
+   OUR STORY SECTION — Romantic Indian Wedding Timeline
+   ============================================================ */
+
+.our-story-section {
+  position: relative;
+  background-color: #260408;
+  padding: 5rem 1.5rem;
+  overflow: hidden;
+  border-top: 1px solid rgba(212, 175, 55, 0.3);
+  color: #FFFFFF;
+}
+
+.story-bg-pattern {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 50% 20%, rgba(120, 15, 30, 0.4) 0%, transparent 60%),
+    linear-gradient(180deg, #2D050B 0%, #1A0205 100%);
+  z-index: 1;
+}
+
+.story-container {
+  position: relative;
+  z-index: 10;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.story-header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.story-pre-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  color: #FFDF73;
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+}
+
+.story-main-title {
+  font-family: 'Great Vibes', 'Alex Brush', cursive;
+  font-size: clamp(2.8rem, 5.5vw, 4.2rem);
+  font-weight: 400;
+  color: #FFFFFF;
+  margin: 0;
+  line-height: 1.1;
+  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
+}
+
+.story-flourish {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  margin: 0.8rem 0 1.2rem;
+}
+
+.story-wing {
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #D4AF37, transparent);
+}
+
+.story-heart {
+  color: #E85D75;
+  font-size: 1.2rem;
+}
+
+.story-intro {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.2rem;
+  color: #EBDDC2;
+  max-width: 650px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Timeline */
+.story-timeline {
+  position: relative;
+  padding: 1rem 0;
+}
+
+.story-timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  background: linear-gradient(180deg, transparent, #D4AF37 15%, #D4AF37 85%, transparent);
+}
+
+.timeline-node {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 2.8rem;
+  width: 50%;
+}
+
+.node-left {
+  left: 0;
+  padding-right: 2.5rem;
+  text-align: right;
+  justify-content: flex-end;
+}
+
+.node-right {
+  left: 50%;
+  padding-left: 2.5rem;
+  text-align: left;
+  justify-content: flex-start;
+}
+
+.timeline-marker {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 10;
+}
+
+.node-left .timeline-marker {
+  right: -24px;
+}
+
+.node-right .timeline-marker {
+  left: -24px;
+}
+
+.marker-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #FFDF73;
+  border: 3px solid #6B0F1A;
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.8);
+}
+
+.marker-year {
+  font-family: 'Cinzel', serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #FFDF73;
+  margin-top: 3px;
+  white-space: nowrap;
+}
+
+.timeline-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  border-radius: 10px;
+  padding: 1.5rem 1.8rem;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.timeline-card:hover {
+  border-color: #D4AF37;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6), 0 0 15px rgba(212, 175, 55, 0.2);
+}
+
+.node-title {
+  font-family: 'Cinzel', serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #FFDF73;
+  margin: 0 0 0.5rem 0;
+  letter-spacing: 0.05em;
+}
+
+.node-desc {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: #F0E2CA;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .story-timeline::before {
+    left: 20px;
+  }
+  .timeline-node {
+    width: 100%;
+    left: 0 !important;
+    padding-left: 50px !important;
+    padding-right: 0 !important;
+    text-align: left !important;
+  }
+  .node-left .timeline-marker,
+  .node-right .timeline-marker {
+    left: 13px !important;
+    right: auto !important;
+  }
+}

@@ -1,0 +1,385 @@
+/* ============================================================
+   MOMENTS MODAL — Luxury Indian Wedding Ceremony Popup
+   ============================================================ */
+
+.moments-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(10, 2, 4, 0.88);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  overflow-y: auto;
+  animation: modal-fade-in 0.3s ease;
+}
+
+@keyframes modal-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.moments-modal-container {
+  position: relative;
+  width: 100%;
+  max-width: 680px;
+  background: #200408;
+  border-radius: 12px;
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85), 0 0 35px rgba(212, 175, 55, 0.2);
+  overflow: hidden;
+  animation: modal-scale-up 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  color: #FFFFFF;
+}
+
+@keyframes modal-scale-up {
+  from { transform: scale(0.92); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* Close Button */
+.modal-close-btn {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 20;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(20, 2, 4, 0.7);
+  border: 1px solid rgba(212, 175, 55, 0.5);
+  color: #FFDF73;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.modal-close-btn:hover {
+  background: #7A0C1A;
+  color: #FFFFFF;
+  transform: rotate(90deg);
+}
+
+/* Media Header (Video/Poster) */
+.modal-media-header {
+  position: relative;
+  width: 100%;
+  height: 280px;
+  background: #000000;
+  overflow: hidden;
+}
+
+.modal-video-player {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.modal-media-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.4) 0%, transparent 40%, rgba(32, 4, 8, 0.95) 100%);
+  pointer-events: none;
+}
+
+.modal-media-badge {
+  position: absolute;
+  bottom: 14px;
+  left: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  background: rgba(212, 175, 55, 0.2);
+  border: 1px solid rgba(212, 175, 55, 0.45);
+  backdrop-filter: blur(6px);
+  color: #FFDF73;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* Modal Body */
+.modal-body {
+  padding: 1.8rem 2rem 2.2rem;
+  background: linear-gradient(180deg, #200408 0%, #160205 100%);
+}
+
+.modal-title-row {
+  margin-bottom: 1.2rem;
+}
+
+.modal-pre-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  color: #FFDF73;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+.modal-title {
+  font-family: 'Cinzel', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin: 0;
+  letter-spacing: 0.08em;
+}
+
+/* Meta Cards Grid */
+.modal-meta-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.4rem;
+}
+
+.meta-card {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  border-radius: 8px;
+  padding: 0.75rem 0.9rem;
+}
+
+.meta-icon {
+  color: #FFDF73;
+  flex-shrink: 0;
+}
+
+.meta-label {
+  display: block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: rgba(235, 221, 194, 0.7);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.meta-value {
+  display: block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #FFFFFF;
+  margin-top: 1px;
+}
+
+/* Description Box */
+.modal-desc-box {
+  background: rgba(0, 0, 0, 0.25);
+  border-left: 3px solid #D4AF37;
+  padding: 0.9rem 1.2rem;
+  border-radius: 0 8px 8px 0;
+  margin-bottom: 1.4rem;
+}
+
+.modal-desc-box p {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #EBDDC2;
+  margin: 0;
+}
+
+/* Rituals List */
+.modal-rituals-section {
+  margin-bottom: 1.4rem;
+}
+
+.rituals-title {
+  font-family: 'Cinzel', serif;
+  font-size: 0.95rem;
+  color: #FFDF73;
+  letter-spacing: 0.12em;
+  margin: 0 0 0.7rem 0;
+}
+
+.rituals-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.ritual-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.82rem;
+  color: #F0E2CA;
+}
+
+.ritual-bullet {
+  color: #D4AF37;
+  font-size: 0.6rem;
+}
+
+/* Dress Code */
+.modal-dress-code {
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  background: rgba(212, 175, 55, 0.1);
+  border: 1px dashed rgba(212, 175, 55, 0.35);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 1.6rem;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.8rem;
+}
+
+.dress-label {
+  font-weight: 700;
+  color: #FFDF73;
+}
+
+.dress-value {
+  color: #FFFFFF;
+}
+
+/* Actions Row */
+.modal-actions-row {
+  display: flex;
+  gap: 1rem;
+}
+
+.modal-action-btn {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.8rem 1.2rem;
+  border-radius: 8px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.calendar-btn {
+  background: linear-gradient(135deg, #7A0C1A 0%, #4D0610 100%);
+  border: 1px solid rgba(212, 175, 55, 0.5);
+  color: #FFFFFF;
+}
+
+.calendar-btn:hover {
+  background: linear-gradient(135deg, #961222 0%, #680A15 100%);
+  border-color: #D4AF37;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(122, 12, 26, 0.6);
+}
+
+.whatsapp-btn {
+  background: #128C7E;
+  border: 1px solid #25D366;
+  color: #FFFFFF;
+}
+
+.whatsapp-btn:hover {
+  background: #075E54;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(18, 140, 126, 0.5);
+}
+
+/* Top Back Button */
+.modal-top-back-btn {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 25;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.42rem 0.95rem;
+  border-radius: 9999px;
+  background: rgba(20, 2, 4, 0.82);
+  border: 1px solid rgba(212, 175, 55, 0.55);
+  backdrop-filter: blur(6px);
+  color: #FFDF73;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.modal-top-back-btn:hover {
+  background: #7A0C1A;
+  border-color: #FFDF73;
+  color: #FFFFFF;
+  transform: translateX(-3px);
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.5);
+}
+
+/* Bottom Back Row */
+.modal-bottom-back-row {
+  margin-top: 1.4rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid rgba(212, 175, 55, 0.2);
+  display: flex;
+  justify-content: center;
+}
+
+.modal-back-btn-bottom {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  width: 100%;
+  padding: 0.85rem 1.4rem;
+  border-radius: 8px;
+  background: rgba(212, 175, 55, 0.12);
+  border: 1px solid rgba(212, 175, 55, 0.45);
+  color: #FFDF73;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.84rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.modal-back-btn-bottom:hover {
+  background: rgba(212, 175, 55, 0.25);
+  border-color: #FFDF73;
+  color: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(212, 175, 55, 0.35);
+}
+
+@media (max-width: 640px) {
+  .modal-meta-grid {
+    grid-template-columns: 1fr;
+  }
+  .modal-actions-row {
+    flex-direction: column;
+  }
+  .modal-body {
+    padding: 1.4rem;
+  }
+}
